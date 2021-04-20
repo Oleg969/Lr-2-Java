@@ -1,0 +1,102 @@
+package com.company;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {2, 4, 5, 16, 18, 20, 35, 64};
+        System.out.println(sortArray(arr1));
+
+        System.out.println(Sort());
+
+        int counter = Counter.getCount();
+
+        System.out.println(counter);
+        Counter counter1 = new Counter();
+        Counter counter2 = new Counter();
+
+        System.out.println(Counter.getCount());
+
+
+    }
+
+    public static int sortArray(int[] array) {
+        int result = 0;
+        //double result =0;
+        for (int i = 0; i < array.length; i++) {
+            int num = 0;
+            result = (int) (num + Math.log(array[i]) / Math.log(2.0));
+            //result = (double)(num + Math.log(array[i])/Math.log(2.0));
+            System.out.println(result);
+        }
+        return 0;
+    }
+
+    //32
+    public static int Sort() {
+        Student[] n = new Student[4];
+        n[0] = new Student("Igor", "Ivanov", 18);
+        n[1] = new Student("Ivan", "Petrov", 20);
+        n[2] = new Student("Egor", "Sobolev", 19);
+        n[3] = new Student("Artem", "Maslow", 18);
+        Scanner in = new Scanner(System.in);
+        System.out.println("Input k:");
+        int k = in.nextInt();
+        while (k > 3) {
+            System.out.println("Enter a different value for k:");
+            k = in.nextInt();
+        }
+        if (k == 1) {
+            Arrays.sort(n, Student::compareStudentsName);
+        } else if (k == 2) {
+            Arrays.sort(n, Student::compareStudentsSurname);
+        } else if (k == 3) {
+            Arrays.sort(n, Student::compareStudentsAge);
+        }
+        for (int i = 0; i < 4; i++) {
+            System.out.println(n[i].name);
+            System.out.println(n[i].surname);
+            System.out.println(n[i].age);
+            System.out.println("");
+        }
+        return 0;
+    }
+
+    //55
+    //final class People{
+    //}
+    //class Student1 extends People{
+    //}
+
+    //public class People{
+    //    final void printP (String[] args) {
+    //        System.out.println("people");
+    //    }
+    //}
+    //class Student1 extends People {
+    //void printP (String[] args){
+    //}
+    //}
+
+    //public class People{
+    //    public final void printP(){
+    //        System.out.println("people");
+    //    }
+    //}
+    //class Student1 extends People{
+    //    public void printP(){
+    //        System.out.println("People");
+    //    }
+    //}
+}
+//51
+class Counter {
+    private static int count = 0;
+    public Counter() {
+        count++;
+    }
+    public static int getCount(){
+        return count;
+    }
+}
